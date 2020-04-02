@@ -1,0 +1,7 @@
+{
+  "app": "npx ts-node bin/workshop-02-sns-sqs.ts",
+  "context": {
+    "ENV_NAME": "<DEVELOPER_NAME>",
+    "SERVICE_NAME": "workshop-02"
+  }
+}

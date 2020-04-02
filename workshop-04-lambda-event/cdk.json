@@ -1,0 +1,7 @@
+{
+  "app": "npx ts-node bin/workshop-04-lambda-event.ts",
+  "context": {
+    "ENV_NAME": "<YOUR_NAME>",
+    "SERVICE_NAME": "workshop-04"
+  }
+}
