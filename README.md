@@ -65,20 +65,11 @@ cdk init --language typescript
 #### Workshop Outline
 There are number of workshop in this repo.
 
-- [workshop-01-dynamodb-namespace](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-01-dynamodb-namespace)
-- [workshop-02-sns-sqs](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-02-sns-sqs)
-- [workshop-03-lambda](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-03-lambdap)
-- [workshop-04-lambda-event](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-04-lambda-event)
-- [workshop-05-appsync](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-05-appsync)
-- [workshop-06-nested-stack](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-06-nested-stack)
-- [z-advanced-workspace-01-construct](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/z-advanced-workshop-01-construct)
-    - dynamodb
-    - sns
-    - lambda
-    - sqs
-    - apigateway
-- [z-advance-workspace-02-custom-resource](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/z-advanced-workshop-02-custom-resource)
-    - cognito-userpool-federated-identity
+- [workshop-01-dynamodb-namespace](./workshop-01-dynamodb-namespace)
+- [workshop-02-sns-sqs](./workshop-02-sns-sqs)
+- [workshop-03-lambda](./workshop-03-lambdap)
+- [workshop-04-lambda-event](./workshop-04-lambda-event)
+
 
 <a name="cdk-reference"></a>
 #### Reference
