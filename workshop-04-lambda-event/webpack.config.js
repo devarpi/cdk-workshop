@@ -4,7 +4,8 @@ const SRC_DIR = path.resolve(__dirname, 'src');
 const OUT_DIR = path.resolve(__dirname, 'deployment');
 module.exports = {
     entry: {
-        cdkLambdaFunction: path.resolve(SRC_DIR, 'cdkLambdaFunction.js')
+        cdkLambdaFunctionOne: path.resolve(SRC_DIR, 'cdkLambdaFunctionOne.js'),
+        cdkLambdaFunctionTwo: path.resolve(SRC_DIR, 'cdkLambdaFunctionTwo.js')
     },
     // aws-sdk is already available in the Node.js Lambda environment
     //  so it can be excluded from function bundles
