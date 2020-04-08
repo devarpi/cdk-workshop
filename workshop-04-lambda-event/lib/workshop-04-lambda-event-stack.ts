@@ -23,13 +23,15 @@ export class Workshop04LambdaEventStack extends CommonStack {
     LAMBD_ENV_VARS['serviceName'] = SERVICE_NAME;
     let EVENT_EXPRESSION = `cron(* 0/1 * * ? *)`;
 
+
+    let handlerName = `cdkLambdaFunctionOne`;
     //step - 1 : create lambda function  
     const cdkLambdaFunction = new lambda.Function(this, `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda-id`, {
       runtime: lambda.Runtime.NODEJS_12_X,
       functionName: `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda`,
       description: `cdk workshop lambda for ${ENV_NAME} envrionment and the service name is ${SERVICE_NAME}`,
-      handler: `cdkLambdaFunction.handler`,
-      code: lambda.Code.asset(`deployment`),
+      handler: `${handlerName}.handler`,
+      code: lambda.Code.asset(`deployment/${handlerName}`),
       memorySize: 128,
       environment: LAMBD_ENV_VARS,
       timeout: Duration.seconds(30)

@@ -10,7 +10,7 @@ import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 import * as _ from 'lodash';
 import CommonStack from '../lib/commonStack';
 
-export class Workshop04LambdaEventSolutionStack extends CommonStack {
+export class Workshop04LambdaEventSolutionStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props); const ENV_NAME = this.node.tryGetContext("ENV_NAME");
     const SERVICE_NAME = this.node.tryGetContext("SERVICE_NAME");
@@ -24,13 +24,14 @@ export class Workshop04LambdaEventSolutionStack extends CommonStack {
     LAMBD_ENV_VARS['serviceName'] = SERVICE_NAME;
     let EVENT_EXPRESSION = `cron(* 0/1 * * ? *)`;
 
+    let handlerName = `cdkLambdaFunctionOne`;
     //step - 1 : create lambda function  
     const cdkLambdaFunction = new lambda.Function(this, `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda-id`, {
       runtime: lambda.Runtime.NODEJS_12_X,
       functionName: `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda`,
       description: `cdk workshop lambda for ${ENV_NAME} envrionment and the service name is ${SERVICE_NAME}`,
-      handler: `cdkLambdaFunction.handler`,
-      code: lambda.Code.asset(`deployment`),
+      handler: `${handlerName}.handler`,
+      code: lambda.Code.asset(`deployment/${handlerName}`),
       memorySize: 128,
       environment: LAMBD_ENV_VARS,
       timeout: Duration.seconds(30)

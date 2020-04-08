@@ -18,7 +18,7 @@ export class Workshop02SnsSqsStack extends cdk.Stack {
       throw new Error('ENV_NAME or SERVICE_NAME context is missing...')
     }
 
-    // 20 mins - self study - 10 mins demo
+
     ////////////////////////////////////////////////////////////////////////////////
     // Exercise: 1 - bin/workshop-02-sns-sqs.ts  
     // - add namespace inside bin/workshop-02-sns-sqs.ts file and follow instruction given inside that file.

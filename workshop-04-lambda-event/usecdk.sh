@@ -40,7 +40,7 @@ case $choice in
     ;;
   5)
     env='devarpi'
-    cp stage_vars/cdk.jtheerpari.json cdk.json
+    cp stage_vars/cdk.devarpi.json cdk.json
     ;;
   *)
     env='nonprod'
