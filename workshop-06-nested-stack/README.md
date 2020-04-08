@@ -48,4 +48,4 @@ For simplicity and building towards CI CD, please look at usecdk.sh file.
 
 #### What we just built?
 
-**Let's see** [Go to this link](https://bitbucket.collegeboard.org/projects/INASAURS/repos/cdk-workshop/browse/workshop-06-nested-stack/imgs/workshop6.png)
+**Let's see** [Go to this link](./imgs/workshop6.png)

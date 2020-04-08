@@ -10,6 +10,7 @@ export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    //namespace your deployment with envName and serviceName
     const ENV_NAME = this.node.tryGetContext("ENV_NAME");
     const SERVICE_NAME = this.node.tryGetContext("SERVICE_NAME");
 
@@ -18,7 +19,7 @@ export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
     }
 
 
-
+    //dynamodb creation
     const dynamoDbTable = new dynamodb.Table(this, `${ENV_NAME}-${SERVICE_NAME}-workshop-domain-id`, {
       tableName: `${ENV_NAME}-${SERVICE_NAME}-workshop-solution-domain`,
       partitionKey: { name: `tenantBid`, type: dynamodb.AttributeType.STRING },
@@ -31,7 +32,7 @@ export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
 
 
 
-
+    //multiple dynamodb creation
     let workshopTables = [{
       tableName: `${ENV_NAME}-${SERVICE_NAME}-workshop-solution-domain1`,
       partitionKey: { name: `tenantBid`, type: dynamodb.AttributeType.STRING },

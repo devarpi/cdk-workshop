@@ -66,11 +66,11 @@ cdk init --language typescript
 There are number of workshop in this repo.
 
 - [workshop-01-dynamodb-namespace](./workshop-01-dynamodb-namespace)
-- [workshop-02-sns-sqs](./workshop-02-sns-sqs)
+- [workshop-02-sns-sqs](./workshop-02-sns-sqs) --> Exercise
 - [workshop-03-lambda](./workshop-03-lambdap)
-- [workshop-04-lambda-event](./workshop-04-lambda-event)
+- [workshop-04-lambda-event](./workshop-04-lambda-event) -->Exercise
 - [workshop-06-nested-stack](./workshop-06-nested-stack)
-- [z-advanced-workshop-01-construct](./z-advanced-workshop-01-construct)
+- [z-advanced-workshop-01-construct](./z-advanced-workshop-01-construct) -->Exercise
 
 
 <a name="cdk-reference"></a>
