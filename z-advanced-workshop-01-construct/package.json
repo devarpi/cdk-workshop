@@ -1,0 +1,35 @@
+{
+  "name": "z-advanced-workshop-01-construct",
+  "version": "0.1.0",
+  "bin": {
+    "z-advanced-workshop-01-construct": "bin/z-advanced-workshop-01-construct.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.32.0",
+    "@types/jest": "^25.2.1",
+    "@types/node": "13.11.0",
+    "jest": "^25.2.7",
+    "ts-jest": "^25.3.1",
+    "aws-cdk": "1.32.0",
+    "ts-node": "^8.8.2",
+    "typescript": "~3.8.3"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-cloudformation": "^1.32.0",
+    "@aws-cdk/aws-iam": "^1.32.0",
+    "@aws-cdk/aws-kms": "^1.32.0",
+    "@aws-cdk/aws-sns": "^1.32.0",
+    "@aws-cdk/aws-sns-subscriptions": "^1.32.0",
+    "@aws-cdk/core": "^1.32.0",
+    "@types/lodash": "^4.14.149",
+    "@types/ramda": "^0.27.3",
+    "ramda": "^0.27.0",
+    "source-map-support": "^0.5.16"
+  }
+}

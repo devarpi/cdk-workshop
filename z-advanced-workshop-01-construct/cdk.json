@@ -1,0 +1,7 @@
+{
+  "app": "npx ts-node bin/z-advanced-workshop-01-construct.ts",
+  "context": {
+    "ENV_NAME": "devarpi",
+    "SERVICE_NAME": "advanced-workshop-01"
+  }
+}

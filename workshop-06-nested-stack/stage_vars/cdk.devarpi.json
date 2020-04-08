@@ -1,0 +1,7 @@
+{
+  "app": "npx ts-node bin/workshop-06-nested-stack.ts",
+  "context": {
+    "ENV_NAME": "devarpi",
+    "SERVICE_NAME": "workshop-06"
+  }
+}

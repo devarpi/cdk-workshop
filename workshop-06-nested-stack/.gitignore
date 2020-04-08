@@ -1,9 +1,12 @@
 *.js
+!webpack.config.js
 !jest.config.js
+!src/*.js
+
 *.d.ts
 node_modules
-
-!./*/src/*.js
+package-lock.json
+cdk.context.json
 # CDK asset staging directory
 .cdk.staging
 cdk.out
