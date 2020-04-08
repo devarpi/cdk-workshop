@@ -69,6 +69,8 @@ There are number of workshop in this repo.
 - [workshop-02-sns-sqs](./workshop-02-sns-sqs)
 - [workshop-03-lambda](./workshop-03-lambdap)
 - [workshop-04-lambda-event](./workshop-04-lambda-event)
+- [workshop-06-nested-stack](./workshop-06-nested-stack)
+- [z-advanced-workshop-01-construct](./z-advanced-workshop-01-construct)
 
 
 <a name="cdk-reference"></a>
