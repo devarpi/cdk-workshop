@@ -6,8 +6,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
  
-mkdir -p deployment/firstFunction
-mkdir -p deployment/secondFunction 
+mkdir -p deployment 
 
 #npm clean-install 
 
@@ -105,13 +104,6 @@ then
   echo "Bootstarcp your labmda before your deploy labmda using cdk. Command : cdk bootstrap --profile  $awsprofile"
   echo "npm run bundle-lambda"
   npm run bundle-lambda
-
-  mkdir -p deployment/firstFunction
-  mv deployment/cdkLambdaFunctionOne.js deployment/firstFunction/
-
-  mkdir -p deployment/secondFunction
-  mv deployment/cdkLambdaFunctionTwo.js deployment/secondFunction/
-  
 
   cdk bootstrap --profile  $awsprofile
 
