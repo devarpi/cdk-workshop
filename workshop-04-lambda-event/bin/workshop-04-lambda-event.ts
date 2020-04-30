@@ -14,11 +14,11 @@ const workshop04LambdaEventStack = new Workshop04LambdaEventSolutionStack(app, `
 
 const tags = [
     { key: 'engineer', value: 'dsheth' },
-    { key: 'cb_program', value: 'financial_aid_software' },
+    { key: 'cb_program', value: 'teched' },
     { key: 'accessibility', value: 'privae' },
     { key: 'data_classification', value: 'proprietary' },
     {
-        key: 'team_lead', value: 'bdakshinamurthy'
+        key: 'team_lead', value: 'phaynes'
     },
     {
         key: 'env', value: `${ENV_NAME}`
