@@ -39,7 +39,6 @@ export default class CBLambdaConstruct extends CBConstruct {
       isDLQ,
       lambdaLayerArn = '',
       lambdaLayerName = '',
-      memorySize,
       securityGroupId = '',
       timeout = Duration.seconds(30),
       tracing,
@@ -47,7 +46,14 @@ export default class CBLambdaConstruct extends CBConstruct {
       scheduleCron,
     } = props;
 
+    let memorySize = props.memorySize;
+
     const ENVIRONMENT = this.getEnvironmentKeyValuePairs(environment);
+
+    if (ENVIRONMENT.ENV_NAME !== 'prod') {
+      memorySize = 128;
+    }
+
     const envServiceName = `${ENVIRONMENT.SERVICE_NAME}-${ENVIRONMENT.ENV_NAME}`;
     const lambdaFunctionName = `${envServiceName}-${functionName}`;
     const groupId = `${envServiceName}-finaid-security-group`;
