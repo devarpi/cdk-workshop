@@ -4,11 +4,7 @@ which cdk &> /dev/null
 if [ $? -ne 0 ]; then
   echo "ERROR - CDK CLI is not installed"
   exit 1
-fi
-
-mkdir -p deployment/cdk-lambda
-mkdir -p deployment/fifo-lambda
-mkdir -p deployment/dynamodb-lambda
+fi 
 
 npm clean-install
 
@@ -19,7 +15,7 @@ echo "3. Pre-production"
 echo "4. Production"
 echo "5. <DEVARLOPER>"
 #awsprofile='cb-powerfaidscloud-nonprod-PFCDevRole-cli'
-awsprofile='cb-finaidservices-nonprod-dev-cli'
+awsprofile='cb-playground-nonprod-dev-cli'
 
 read choice
 
@@ -39,7 +35,7 @@ case $choice in
     ;;
   4)
     env='prod'
-    awsprofile='cb-powerfaidscloud-prod-dev-cli'
+    awsprofile='cb-playground-prod-dev-cli'
     cp stage_vars/cdk.prod.json cdk.json
     ;;
   5)
@@ -106,17 +102,7 @@ then
   echo "Bootstarcp your labmda before your deploy labmda using cdk. Command : cdk bootstrap --profile  $awsprofile"
   echo "npm run bundle-lambda"
   npm run bundle-lambda
-
-  mkdir -p deployment/cdk-lambda
-  mv deployment/cdkLambdaFunction.js deployment/cdk-lambda/
-
-  mkdir -p deployment/fifo-lambda
-  mv deployment/cdkFifoLambdaFunction.js deployment/fifo-lambda/
-
-  mkdir -p deployment/dynamodb-lambda
-  mv deployment/cdkDynamoDBLambdaFunction.js deployment/dynamodb-lambda/
-  
-
+ 
   cdk bootstrap --profile  $awsprofile
 
   echo "cdk deploy --profile $awsprofile $stackname"
