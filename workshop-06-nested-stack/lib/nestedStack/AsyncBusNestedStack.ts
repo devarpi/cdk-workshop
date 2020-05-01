@@ -80,8 +80,8 @@ export class AsyncBusStack extends CommonNestedStack {
             runtime: lambda.Runtime.NODEJS_12_X,
             functionName: `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda`,
             description: `cdk workshop lambda for ${ENV_NAME} envrionment and the service name is ${SERVICE_NAME}`,
-            handler: `cdkLambdaFunction.handler`,
-            code: lambda.Code.asset(`deployment/cdk-lambda`),
+            handler: `cdkLambdaFunctionOne.handler`,
+            code: lambda.Code.asset(`deployment/cdkLambdaFunctionOne`),
             memorySize: 128,
             environment: LAMBD_ENV_VARS,
             timeout: Duration.seconds(30)

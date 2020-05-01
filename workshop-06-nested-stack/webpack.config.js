@@ -4,9 +4,9 @@ const SRC_DIR = path.resolve(__dirname, 'src');
 const OUT_DIR = path.resolve(__dirname, 'deployment');
 module.exports = {
     entry: {
-        cdkLambdaFunction: path.resolve(SRC_DIR, 'cdkLambdaFunction.js'),
-        cdkFifoLambdaFunction: path.resolve(SRC_DIR, 'cdkFifoLambdaFunction.js'),
-        cdkDynamoDBLambdaFunction: path.resolve(SRC_DIR, 'cdkDynamoDBLambdaFunction.js')
+        cdkLambdaFunctionOne: path.resolve(SRC_DIR, 'cdkLambdaFunctionOne.js'),
+        cdkLambdaFunctionTwo: path.resolve(SRC_DIR, 'cdkLambdaFunctionOne.js'),
+        cdkLambdaFunctionThree: path.resolve(SRC_DIR, 'cdkLambdaFunctionThree.js')
     },
     // aws-sdk is already available in the Node.js Lambda environment
     //  so it can be excluded from function bundles
@@ -15,7 +15,7 @@ module.exports = {
     //],
     output: {
         path: OUT_DIR,
-        filename: '[name].js',
+        filename: '[name]/[name].js',
         library: '[name]',
         libraryTarget: 'umd'
     },

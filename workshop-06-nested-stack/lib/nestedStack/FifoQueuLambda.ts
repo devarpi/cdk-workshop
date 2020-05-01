@@ -55,8 +55,8 @@ export class FifoQueueLambdaStack extends CommonNestedStack {
             runtime: lambda.Runtime.NODEJS_12_X,
             functionName: `${ENV_NAME}-${SERVICE_NAME}-cdk-fifo-lambda`,
             description: `cdk workshop lambda for ${ENV_NAME} envrionment and the service name is ${SERVICE_NAME}`,
-            handler: `cdkFifoLambdaFunction.handler`,
-            code: lambda.Code.asset(`deployment/fifo-lambda`),
+            handler: `cdkLambdaFunctionThree.handler`,
+            code: lambda.Code.asset(`deployment/cdkLambdaFunctionThree`),
             memorySize: 128,
             environment: LAMBD_ENV_VARS,
             timeout: Duration.seconds(30)

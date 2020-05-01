@@ -45,8 +45,8 @@ export class DynamoDBNestedStack extends cfn.NestedStack {
             runtime: lambda.Runtime.NODEJS_12_X,
             functionName: `${ENV_NAME}-${SERVICE_NAME}-cdk-dynamodb-lambda`,
             description: `cdk workshop lambda attached as trigger on dynamodb table : ${ENV_NAME}-${SERVICE_NAME}-workshop-solution-domain : for ${ENV_NAME} envrionment and the service name is ${SERVICE_NAME}`,
-            handler: `cdkLambdaFunction.handler`,
-            code: lambda.Code.asset(`deployment/dynamodb-lambda`),
+            handler: `cdkLambdaFunctionTwo.handler`,
+            code: lambda.Code.asset(`deployment/cdkLambdaFunctionTwo`),
             memorySize: 128,
             environment: LAMBD_ENV_VARS,
             timeout: Duration.seconds(30)

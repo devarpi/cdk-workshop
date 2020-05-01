@@ -1,8 +1,5 @@
 'use strict';
 
-const createCache = require('./cache/cacheHandler').createCache;
-
-
 let handler = (event, context, callback, awsSdk, allCachedData) => {
 
 
@@ -14,5 +11,5 @@ let handler = (event, context, callback, awsSdk, allCachedData) => {
 
 
 module.exports = {
-    handler: createCache(handler)
+    handler: handler
 };
