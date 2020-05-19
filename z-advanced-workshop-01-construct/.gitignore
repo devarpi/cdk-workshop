@@ -1,7 +1,7 @@
 *.js
 !jest.config.js
 !src/*.js
-
+package-lock.json
 *.d.ts
 node_modules
 
