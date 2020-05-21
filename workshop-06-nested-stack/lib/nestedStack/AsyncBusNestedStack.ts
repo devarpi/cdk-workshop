@@ -11,9 +11,10 @@ import * as snsSubscription from '@aws-cdk/aws-sns-subscriptions'
 
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 import CommonNestedStack from './commonNestedStack';
-import * as CBSqsConstruct from '../construct/sqs-construct';
-import * as CBSnsConstruct from '../construct/sns-construct';
-import * as CBLambdaConstruct from '../construct/lambda-construct';
+import CBSqsConstruct from '../construct/sqs-construct';
+import CBLambdaConstruct from '../construct/lambda-construct';
+import { CBSnsConstructProps } from '../interfaces/construct-interfaces';
+import CBSnsConstruct from '../construct/sns-construct';
 
 export interface CommonStackObject {
     sqsQueue: sqs.Queue;
@@ -44,11 +45,23 @@ export class AsyncBusStack extends CommonNestedStack {
 
         // Exercise: 1 - use sns Construct instead of sns.Topic
         //use CBSnsConstruct here
+
+
+
+        const mySnsProps = {
+            topicName: `new-topic`,
+            keyArn: key.keyArn,
+            environment: { SERVICE_NAME, ENV_NAME }
+        } as CBSnsConstructProps;
+
+        const newTopic = new CBSnsConstruct(this, `${ENV_NAME}-${SERVICE_NAME}-sns-new`, { ...mySnsProps });
+
         const topic = new sns.Topic(this, `${ENV_NAME}-${SERVICE_NAME}-sns`, {
             displayName: `demo topic`,
             topicName: `${ENV_NAME}-${SERVICE_NAME}-topic`,
             masterKey: key
         });
+
         this.cfnOutput(`${ENV_NAME}-${SERVICE_NAME}-workshop-topic-output-arn`, topic.topicArn,
             `${ENV_NAME}-${SERVICE_NAME}-workshop-topic-arn`, `sns topic arn export ${ENV_NAME}-${SERVICE_NAME}-topic`);
 
