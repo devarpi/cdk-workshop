@@ -11,9 +11,9 @@ import * as snsSubscription from '@aws-cdk/aws-sns-subscriptions'
 
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 import CommonNestedStack from './commonNestedStack';
-import { CBSqsConstruct } from '../construct/sqs-construct'
-import { CBSnsConstruct } from '../construct/sns-construct'
-import { CBLambdaConstruct } from '../construct/lambda-construct'
+import * as CBSqsConstruct from '../construct/sqs-construct';
+import * as CBSnsConstruct from '../construct/sns-construct';
+import * as CBLambdaConstruct from '../construct/lambda-construct';
 
 export interface CommonStackObject {
     sqsQueue: sqs.Queue;
