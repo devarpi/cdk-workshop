@@ -19,9 +19,13 @@ export class Workshop06NestedStackStack extends CommonStack {
 
     //first get async bus nested stack
 
+    //Nested stack -1 
     const asyncBusStack = new AsyncBusStack(this, `${SERVICE_NAME}-${ENV_NAME}-asyncbus-nested-stack`)
-
+    
+    //Nested stack -2
     const fiffoQueueLambdaStack = new FifoQueueLambdaStack(this, `${SERVICE_NAME}-${ENV_NAME}-fifo-queue-lambda-nested-stack`)
+    
+    //Nested stack -3
     const dynamoDBNestedStack = new DynamoDBNestedStack(this, `${SERVICE_NAME}-${ENV_NAME}-dynamodb-lambda-nested-stack`)
 
     //dynamoDBNestedStack.addDependency(asyncBusStack);

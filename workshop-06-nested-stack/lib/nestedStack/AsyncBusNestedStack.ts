@@ -11,6 +11,9 @@ import * as snsSubscription from '@aws-cdk/aws-sns-subscriptions'
 
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 import CommonNestedStack from './commonNestedStack';
+import { CBSqsConstruct } from '../construct/sqs-construct'
+import { CBSnsConstruct } from '../construct/sns-construct'
+import { CBLambdaConstruct } from '../construct/lambda-construct'
 
 export interface CommonStackObject {
     sqsQueue: sqs.Queue;
@@ -39,7 +42,8 @@ export class AsyncBusStack extends CommonNestedStack {
         this.cfnOutput(`${ENV_NAME}-${SERVICE_NAME}-key-output-arn`, key.keyArn,
             `${ENV_NAME}-${SERVICE_NAME}-key-arn`, `KMS key arn export ${ENV_NAME}-${SERVICE_NAME}-key`);
 
-        sns
+        // Exercise: 1 - use sns Construct instead of sns.Topic
+        //use CBSnsConstruct here
         const topic = new sns.Topic(this, `${ENV_NAME}-${SERVICE_NAME}-sns`, {
             displayName: `demo topic`,
             topicName: `${ENV_NAME}-${SERVICE_NAME}-topic`,
@@ -52,6 +56,8 @@ export class AsyncBusStack extends CommonNestedStack {
             `${ENV_NAME}-${SERVICE_NAME}-workshop-topic-name`, `sns topic name export ${ENV_NAME}-${SERVICE_NAME}-topic`);
 
         //need a SQS Queue
+        // Exercise: 2 - use sqs Construct instead of sqs.Queue 
+        //use CBSqsConstruct here
         const queue = new sqs.Queue(this, `${ENV_NAME}-${SERVICE_NAME}-sqs`,
             {
                 queueName: `${ENV_NAME}-${SERVICE_NAME}-workshop`,
@@ -75,6 +81,8 @@ export class AsyncBusStack extends CommonNestedStack {
         LAMBD_ENV_VARS['serviceName'] = SERVICE_NAME;
         let EVENT_EXPRESSION = `cron(* 0/1 * * ? *)`;
 
+        // Exercise: 3 - use sqs Construct instead of lambda.Function
+        //use CBLambdaConstruct here
         //step - 1 : create lambda function  
         const cdkLambdaFunction = new lambda.Function(this, `${ENV_NAME}-${SERVICE_NAME}-cdk-lambda-id`, {
             runtime: lambda.Runtime.NODEJS_12_X,
