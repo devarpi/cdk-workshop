@@ -23,7 +23,7 @@ export class FifoQueueLambdaStack extends CommonNestedStack {
     public readonly commonStackOutpu: CommonStackObject;
     public readonly handlers: Array<lambda.Function> = [];
 
-    constructor(scope: Construct, id: string, props?: NestedStackProps) {
+    constructor(scope: Construct, id: string, props?: NestedStackProps, additionalProps?: any) {
         super(scope, id);
         const ENV_NAME = this.node.tryGetContext("ENV_NAME");
         const SERVICE_NAME = this.node.tryGetContext("SERVICE_NAME");

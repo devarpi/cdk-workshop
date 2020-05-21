@@ -87,27 +87,6 @@ export class AsyncBusStack extends CommonNestedStack {
             timeout: Duration.seconds(30)
         });
 
-        const tags = [
-            { key: 'engineer', value: 'dsheth' },
-            { key: 'cb_program', value: 'financial_aid_software' },
-            { key: 'accessibility', value: 'private' },
-            { key: 'data_classification', value: 'proprietary' },
-            {
-                key: 'team_lead', value: 'bdakshinamurthy'
-            },
-            {
-                key: 'env', value: 'dev'
-            },
-            {
-                key: 'asset_id', value: 'PFCL-MS-DR-SERVICE'
-            }
-        ];
-
-        //Add All Tags
-        for (const tag of tags) {
-            //   Tag.add(workshop06NestedStackStack, tag.key, tag.value);
-            this.tags.setTag(tag.key, tag.value)
-        }
 
 
     }
