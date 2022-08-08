@@ -1,14 +1,20 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
-import { Workshop01DynamodbNamespaceStack } from '../lib/workshop-01-dynamodb-namespace-stack';
-import { Tag } from '@aws-cdk/core';
+//import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
+
+import { Workshop01DynamodbNamespaceSolutionStack } from '../solution/workshop-01-dynamodb-namespace-solution-stack';
+//import { Tag } from '@aws-cdk/core';
 
 const app = new cdk.App();
 
+
+const ENV_NAME = app.node.tryGetContext("ENV_NAME");
+const SERVICE_NAME = app.node.tryGetContext("SERVICE_NAME");
+
 //Get env in to stack
 //Namespace the stack name
-new Workshop01DynamodbNamespaceStack(app, 'Workshop01DynamodbNamespaceStack');
+new Workshop01DynamodbNamespaceSolutionStack(app,`${ENV_NAME}-${SERVICE_NAME}-dynamodb` );
 
 
 

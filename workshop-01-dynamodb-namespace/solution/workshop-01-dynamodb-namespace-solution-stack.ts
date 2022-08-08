@@ -1,13 +1,16 @@
-import * as cdk from '@aws-cdk/core';
-import * as dynamodb from '@aws-cdk/aws-dynamodb';
+// import * as cdk from '@aws-cdk/core';
+// import * as dynamodb from '@aws-cdk/aws-dynamodb';
+ 
+import { Construct } from 'constructs';
+import { CfnOutput, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib';
+import { TableEncryption } from 'aws-cdk-lib/aws-dynamodb';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 
-
-import * as _ from 'lodash';
-import { RemovalPolicy } from '@aws-cdk/core';
+import * as _ from 'lodash'; 
 
 //cdk docs - https://docs.aws.amazon.com/cdk/api/latest/docs/aws-dynamodb-readme.html
-export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+export class Workshop01DynamodbNamespaceSolutionStack extends Stack { 
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     //namespace your deployment with envName and serviceName
@@ -25,7 +28,8 @@ export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
       partitionKey: { name: `tenantBid`, type: dynamodb.AttributeType.STRING },
       sortKey: { name: `studentid`, type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
-      serverSideEncryption: true, //enforcing encryption by default
+     // serverSideEncryption: true, //enforcing encryption by default
+      encryption:TableEncryption.AWS_MANAGED,
       removalPolicy: RemovalPolicy.DESTROY
     });
 
@@ -65,12 +69,13 @@ export class Workshop01DynamodbNamespaceSolutionStack extends cdk.Stack {
         partitionKey: workshopTable.partitionKey,
         sortKey: workshopTable.sortKey,
         billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
-        serverSideEncryption: true,//enforcing encryption by default
+        encryption:TableEncryption.AWS_MANAGED,
+
         removalPolicy: RemovalPolicy.DESTROY
       });
 
       //Cloudformation Export -dynamodb table arn
-      new cdk.CfnOutput(this, `${workshopTable.tableName}-output-arn`, {
+      new CfnOutput(this, `${workshopTable.tableName}-output-arn`, {
         value: `${dynamoDbTable.tableArn}`,
         exportName: `${workshopTable.tableName}-arn`,
         description: `dynamodb table arn export for ${workshopTable.tableName}`
